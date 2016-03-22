@@ -29,28 +29,8 @@ public class SignEditUtils {
 		return true;
 	}
 
-	public static final String cleanColorCodes(String mess) {
-		return mess.replaceAll("(&([" + colorCodes + "]))", "");
-	}
-
-	private static final String colorCodes;
-
-	static {
-		String string = "";
-		for (ChatColor color : ChatColor.values()) {
-			char c = color.getChar();
-			if (!Character.isLetter(c)) {
-				string += c;
-			} else {
-				string += Character.toUpperCase(c);
-				string += Character.toLowerCase(c);
-			}
-		}
-		colorCodes = string;
-	}
-
 	private String strip(String in) {
-		return cleanColorCodes(ChatColor.stripColor(in));
+		return ChatColor.stripColor(in);
 	}
 
 	public boolean throwSignChange(Block theBlock, Player thePlayer, String[] theLines) {
