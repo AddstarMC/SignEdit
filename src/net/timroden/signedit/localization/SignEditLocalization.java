@@ -12,7 +12,7 @@ import org.bukkit.configuration.file.FileConfiguration;
 public class SignEditLocalization {
 	private SignEdit plugin;
 
-	public static Map<String, String> Strings = new HashMap<String, String>();
+	public static Map<String, String> strings = new HashMap<String, String>();
 
 	public SignEditLocalization(SignEdit plugin) {
 		this.plugin = plugin;
@@ -20,7 +20,7 @@ public class SignEditLocalization {
 	}
 
 	public final void loadLocales() {
-		Strings.clear();
+		strings.clear();
 		
 		FileConfiguration locales = plugin.yml.getYMLConfig(Config.getLocale(), true); 
 
@@ -28,7 +28,7 @@ public class SignEditLocalization {
 			String value;
 			for (String key : locales.getKeys(false)) {
 				value = locales.getString(key);
-				Strings.put(key, ChatColor.translateAlternateColorCodes('&', value));
+				strings.put(key, ChatColor.translateAlternateColorCodes('&', value));
 			}
 		}
 				
@@ -37,20 +37,20 @@ public class SignEditLocalization {
 		if (locales != null) {
 			String value;
 			for (String key : locales.getKeys(false)) {
-				if (!Strings.containsKey(key)){
+				if (!strings.containsKey(key)){
 					value = locales.getString(key);
-					Strings.put(key, ChatColor.translateAlternateColorCodes('&', value));
+					strings.put(key, ChatColor.translateAlternateColorCodes('&', value));
 				}
 			}
 		}
 	}
 	
 	public String get(String key) {
-		return Strings.get(key);
+		return strings.get(key);
 	}
 	
 	public String get(String key, Object... args) {
-		String value = Strings.get(key);
+		String value = strings.get(key);
 		try {
 			if (value != null || args != null)
 				value = String.format(value, args);
