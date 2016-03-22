@@ -26,6 +26,7 @@ public class SignEdit extends JavaPlugin {
 	public Config config;
 	public YML yml;
 
+        @Override
 	public void onEnable() {
 		this.config = new Config(this);
 		this.yml = new YML(this);
@@ -52,5 +53,6 @@ public class SignEdit extends JavaPlugin {
 		getCommand("signedit").setExecutor(new CommandSignEdit(this));
 	}
 
+        @Override
 	public void onDisable() {}
 }

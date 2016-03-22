@@ -53,7 +53,7 @@ public class SignEditUtils {
 		return cleanColorCodes(ChatColor.stripColor(in));
 	}
 
-	public Boolean throwSignChange(Block theBlock, Player thePlayer, String[] theLines) {
+	public boolean throwSignChange(Block theBlock, Player thePlayer, String[] theLines) {
 		if (Config.fireBlockBreakPlace() == true) {
 			
 			BlockBreakEvent b = new BlockBreakEvent(theBlock, thePlayer);
@@ -86,7 +86,7 @@ public class SignEditUtils {
 			}
 		}	
 
-		return Boolean.valueOf(event.isCancelled());
+		return event.isCancelled();
 	}
 
 	public boolean isSign(Block b) {

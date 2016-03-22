@@ -50,7 +50,7 @@ public class SignEditLocalization {
 	}
 	
 	public String get(String key, Object... args) {
-		String value = Strings.get(key).toString();
+		String value = Strings.get(key);
 		try {
 			if (value != null || args != null)
 				value = String.format(value, args);

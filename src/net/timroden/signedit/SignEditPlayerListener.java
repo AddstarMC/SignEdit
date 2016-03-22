@@ -64,7 +64,7 @@ public class SignEditPlayerListener implements Listener {
 			}
 			String[] lines = dataPack.getLines();
 
-			if (this.utils.throwSignChange(block, player, sign.getLines()).booleanValue()) {
+			if (this.utils.throwSignChange(block, player, sign.getLines())) {
 				player.sendMessage(this.plugin.chatPrefix + this.plugin.localization.get("pasteError"));
 				this.plugin.playerData.remove(player.getName());
 				return;
@@ -91,7 +91,7 @@ public class SignEditPlayerListener implements Listener {
 				+ " "
 				+ this.plugin.localization.get(
 					"pasteCopiesLeft",
-					new Object[] { Integer.valueOf(amount),
+					new Object[] { amount,
 						amount == 1 ? this.plugin.localization.get("pasteCopyStr") : this.plugin.localization.get("pasteCopiesStr") }));
 		} else if (function.equals(SignFunction.PASTEPERSIST)) {
 			if (this.utils.shouldCancel(player)) {
@@ -99,7 +99,7 @@ public class SignEditPlayerListener implements Listener {
 			}
 			String[] lines = dataPack.getLines();
 
-			if (this.utils.throwSignChange(block, player, sign.getLines()).booleanValue()) {
+			if (this.utils.throwSignChange(block, player, sign.getLines())) {
 				player.sendMessage(this.plugin.chatPrefix + this.plugin.localization.get("pasteError"));
 				this.plugin.playerData.remove(player.getName());
 				return;
@@ -121,7 +121,7 @@ public class SignEditPlayerListener implements Listener {
 			String newText = dataPack.getLine();
 			existingLines[line] = newText;
 
-			if (this.utils.throwSignChange(block, player, existingLines).booleanValue()) {
+			if (this.utils.throwSignChange(block, player, existingLines)) {
 				player.sendMessage(this.plugin.chatPrefix + this.plugin.localization.get("editError"));
 				this.plugin.playerData.remove(player.getName());
 				return;
