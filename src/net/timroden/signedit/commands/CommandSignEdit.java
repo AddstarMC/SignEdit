@@ -51,7 +51,6 @@ public class CommandSignEdit implements CommandExecutor {
 		}
 
 		Player player = (Player) sender;
-		String line = null;
 
 		if (!player.hasPermission("signedit.edit")) {
 			player.sendMessage(this.plugin.chatPrefix + this.plugin.localization.get("noSignEditPermission"));
@@ -139,7 +138,7 @@ public class CommandSignEdit implements CommandExecutor {
 				return true;
 			}
 
-			line = this.utils.implode(args, " ", 1, args.length);
+			String line = this.utils.implode(args, " ", 1, args.length);
 
 			if (line == null) {
 				this.plugin.log.logAll(player.getName(), args[0], LogType.PLAYERCOMMAND, Level.INFO);
