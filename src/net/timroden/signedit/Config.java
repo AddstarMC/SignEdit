@@ -37,7 +37,7 @@ public class Config {
 		getOpts();
 	}
 
-	public void getOpts() {
+	public final void getOpts() {
 		ignoreCreative = config.getBoolean("signedit.ignorecreative");
 		logName = config.getString("signedit.log.filename");
 		invertMouse = config.getBoolean("signedit.invertmouse");
