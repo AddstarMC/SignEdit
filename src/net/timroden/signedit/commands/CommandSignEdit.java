@@ -78,38 +78,38 @@ public class CommandSignEdit implements CommandExecutor {
 					SignEditDataPackage tmp = new SignEditDataPackage(player.getName(), SignFunction.COPYPERSIST);
 					this.plugin.playerData.put(player.getUniqueId(), tmp);
 					player.sendMessage(this.plugin.chatPrefix
-						+ this.plugin.localization.get("persistEnabled", new Object[] { this.utils.capitalize(this.plugin.config.clickActionStr()) }));
+						+ this.plugin.localization.get("persistEnabled", this.utils.capitalize(this.plugin.config.clickActionStr()) ));
 					return true;
 				}
 				if (args[1].equalsIgnoreCase("default")) {
 					if (!this.utils.isInt(args[2])) {
-						player.sendMessage(this.plugin.chatPrefix + this.plugin.localization.get("invalidNumber", new Object[] { args[2] }));
+						player.sendMessage(this.plugin.chatPrefix + this.plugin.localization.get("invalidNumber", args[2] ));
 						return true;
 					}
 					this.plugin.log.logAll(player.getName(), "default " + args[2], LogType.PLAYERCOMMAND, Level.INFO);
 					this.plugin.pasteAmounts.put(player.getUniqueId(), Integer.parseInt(args[2]));
-					player.sendMessage(this.plugin.chatPrefix + this.plugin.localization.get("defaultPastesChanged", new Object[] { args[2] }));
+					player.sendMessage(this.plugin.chatPrefix + this.plugin.localization.get("defaultPastesChanged", args[2] ));
 					return true;
 				}
 				this.plugin.log.logAll(player.getName(), "copy " + args[1], LogType.PLAYERCOMMAND, Level.INFO);
 				if (!this.utils.isInt(args[1])) {
 					SignEditDataPackage tmp = new SignEditDataPackage(player.getName(), SignFunction.COPY, (this.plugin.pasteAmounts.get(player.getUniqueId())));
 					this.plugin.playerData.put(player.getUniqueId(), tmp);
-					player.sendMessage(this.plugin.chatPrefix + this.plugin.localization.get("invalidNumber", new Object[] { args[1] }));
+					player.sendMessage(this.plugin.chatPrefix + this.plugin.localization.get("invalidNumber", args[1] ));
 					player.sendMessage(this.plugin.chatPrefix
-						+ this.plugin.localization.get("defaultCopyPunch", new Object[] {
+						+ this.plugin.localization.get("defaultCopyPunch",
 							this.utils.capitalize(this.plugin.config.clickActionStr()),
 							this.plugin.pasteAmounts.get(player.getUniqueId()),
 							(this.plugin.pasteAmounts.get(player.getUniqueId())) == 1 ? this.plugin.localization.get("pasteCopyStr")
-								: this.plugin.localization.get("pasteCopiesStr") }));
+								: this.plugin.localization.get("pasteCopiesStr") ));
 					return true;
 				}
 				SignEditDataPackage tmp = new SignEditDataPackage(player.getName(), SignFunction.COPY, Integer.parseInt(args[1]));
 				this.plugin.playerData.put(player.getUniqueId(), tmp);
 				player.sendMessage(this.plugin.chatPrefix
 					+ this.plugin.localization.get("intCopyPunch",
-						new Object[] { this.utils.capitalize(this.plugin.config.clickActionStr()), args[1],
-							Integer.parseInt(args[1]) == 1 ? this.plugin.localization.get("pasteCopyStr") : this.plugin.localization.get("pasteCopiesStr") }));
+						this.utils.capitalize(this.plugin.config.clickActionStr()), args[1],
+							Integer.parseInt(args[1]) == 1 ? this.plugin.localization.get("pasteCopyStr") : this.plugin.localization.get("pasteCopiesStr") ));
 				return true;
 			}
 
@@ -118,22 +118,22 @@ public class CommandSignEdit implements CommandExecutor {
 			SignEditDataPackage tmp = new SignEditDataPackage(player.getName(), SignFunction.COPY, amt);
 			this.plugin.playerData.put(player.getUniqueId(), tmp);
 			player.sendMessage(this.plugin.chatPrefix
-				+ this.plugin.localization.get("defaultCopyPunch", new Object[] {
+				+ this.plugin.localization.get("defaultCopyPunch",
 					this.utils.capitalize(this.plugin.config.clickActionStr()),
 					this.plugin.pasteAmounts.get(player.getUniqueId()),
 					(this.plugin.pasteAmounts.get(player.getUniqueId())) == 1 ? this.plugin.localization.get("pasteCopyStr")
-						: this.plugin.localization.get("pasteCopiesStr") }));
+						: this.plugin.localization.get("pasteCopiesStr") ));
 			return true;
 		}
 
 		if (args.length >= 1) {
 			if (!this.utils.isInt(args[0])) {
-				player.sendMessage(this.plugin.chatPrefix + this.plugin.localization.get("invalidNumber", new Object[] { args[0] }));
+				player.sendMessage(this.plugin.chatPrefix + this.plugin.localization.get("invalidNumber", args[0] ));
 				return true;
 			}
 
 			if ((Integer.parseInt(args[0]) > 4) || (Integer.parseInt(args[0]) < 1)) {
-				player.sendMessage(this.plugin.chatPrefix + this.plugin.localization.get("invalidLine", new Object[] { args[0] }));
+				player.sendMessage(this.plugin.chatPrefix + this.plugin.localization.get("invalidLine", args[0] ));
 				return true;
 			}
 
@@ -144,7 +144,7 @@ public class CommandSignEdit implements CommandExecutor {
 				SignEditDataPackage tmp = new SignEditDataPackage(player.getName(), SignFunction.EDIT, "", Integer.parseInt(args[0]) - 1);
 				this.plugin.playerData.put(player.getUniqueId(), tmp);
 				player.sendMessage(this.plugin.chatPrefix
-					+ this.plugin.localization.get("punchToComplete", new Object[] { this.utils.capitalize(this.plugin.config.clickActionStr()) }));
+					+ this.plugin.localization.get("punchToComplete", this.utils.capitalize(this.plugin.config.clickActionStr()) ));
 				return true;
 			}
 
@@ -156,7 +156,7 @@ public class CommandSignEdit implements CommandExecutor {
 			SignEditDataPackage tmp = new SignEditDataPackage(player.getName(), SignFunction.EDIT, line, Integer.parseInt(args[0]) - 1);
 			this.plugin.playerData.put(player.getUniqueId(), tmp);
 			player.sendMessage(this.plugin.chatPrefix
-				+ this.plugin.localization.get("punchToComplete", new Object[] { this.utils.capitalize(this.plugin.config.clickActionStr()) }));
+				+ this.plugin.localization.get("punchToComplete", this.utils.capitalize(this.plugin.config.clickActionStr()) ));
 			return true;
 		}
 		sender.sendMessage(this.plugin.chatPrefix + this.plugin.localization.get("syntaxError"));
@@ -167,7 +167,7 @@ public class CommandSignEdit implements CommandExecutor {
 	public void help(CommandSender sender) {
 		sender.sendMessage(this.plugin.chatPrefix + this.plugin.localization.get("commandsAvailable"));
 		if ((sender instanceof Player)) {
-			sender.sendMessage(this.plugin.chatPrefix + this.plugin.localization.get("commandsHeader", new Object[] { this.plugin.config.clickActionStr() }));
+			sender.sendMessage(this.plugin.chatPrefix + this.plugin.localization.get("commandsHeader", this.plugin.config.clickActionStr() ));
 			sender.sendMessage(ChatColor.GRAY + " - " + this.plugin.localization.get("commandsDef"));
 			sender.sendMessage(ChatColor.GRAY + " - " + this.plugin.localization.get("commandsCancel"));
 			sender.sendMessage(ChatColor.GRAY + " - " + this.plugin.localization.get("commandsCopyAmount"));

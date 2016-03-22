@@ -49,7 +49,7 @@ public class SignEditPlayerListener implements Listener {
 			}
 			SignEditDataPackage tmp = new SignEditDataPackage(player.getName(), sign.getLines(), dataPack.getAmount(), SignFunction.PASTE);
 			this.plugin.playerData.put(player.getUniqueId(), tmp);
-			player.sendMessage(this.plugin.chatPrefix + this.plugin.localization.get("copySignAdded", new Object[] { this.plugin.config.clickActionStr() }));
+			player.sendMessage(this.plugin.chatPrefix + this.plugin.localization.get("copySignAdded", this.plugin.config.clickActionStr() ));
 		} else if (function.equals(SignFunction.COPYPERSIST)) {
 			if (this.utils.shouldCancel(player)) {
 				event.setCancelled(true);
@@ -57,7 +57,7 @@ public class SignEditPlayerListener implements Listener {
 			}
 			SignEditDataPackage tmp = new SignEditDataPackage(player.getName(), SignFunction.PASTEPERSIST, sign.getLines());
 			this.plugin.playerData.put(player.getUniqueId(), tmp);
-			player.sendMessage(this.plugin.chatPrefix + this.plugin.localization.get("copySignAdded", new Object[] { this.plugin.config.clickActionStr() }));
+			player.sendMessage(this.plugin.chatPrefix + this.plugin.localization.get("copySignAdded", this.plugin.config.clickActionStr() ));
 		} else if (function.equals(SignFunction.PASTE)) {
 			if (this.utils.shouldCancel(player)) {
 				event.setCancelled(true);
@@ -91,8 +91,8 @@ public class SignEditPlayerListener implements Listener {
 				+ " "
 				+ this.plugin.localization.get(
 					"pasteCopiesLeft",
-					new Object[] { amount,
-						amount == 1 ? this.plugin.localization.get("pasteCopyStr") : this.plugin.localization.get("pasteCopiesStr") }));
+					amount,
+						amount == 1 ? this.plugin.localization.get("pasteCopyStr") : this.plugin.localization.get("pasteCopiesStr") ));
 		} else if (function.equals(SignFunction.PASTEPERSIST)) {
 			if (this.utils.shouldCancel(player)) {
 				event.setCancelled(true);
@@ -109,7 +109,7 @@ public class SignEditPlayerListener implements Listener {
 				sign.setLine(i, lines[i]);
 			}
 			sign.update();
-			player.sendMessage(this.plugin.chatPrefix + this.plugin.localization.get("pasteCopiesLeft", new Object[] { "∞", "copies" }));
+			player.sendMessage(this.plugin.chatPrefix + this.plugin.localization.get("pasteCopiesLeft", "∞", "copies"));
 		} else if (function.equals(SignFunction.EDIT)) {
 			if (this.utils.shouldCancel(player)) {
 				event.setCancelled(true);
