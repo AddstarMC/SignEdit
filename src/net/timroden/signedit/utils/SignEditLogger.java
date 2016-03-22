@@ -16,14 +16,16 @@ import net.timroden.signedit.data.LogType;
 public class SignEditLogger {
 	private SignEdit plugin;
 	private Logger log;
+	private Config config;
 	private File logFile;
 	private DateFormat dateFormat = new SimpleDateFormat("yyyy/MM/dd HH:mm:ss");
 
 	public SignEditLogger(SignEdit plugin) {
 		this.plugin = plugin;
 		this.log = plugin.getLogger();
+		this.config = plugin.config;
 
-		this.logFile = new File(this.plugin.getDataFolder(), Config.logName());
+		this.logFile = new File(this.plugin.getDataFolder(), config.logName());
 		if (!this.logFile.exists()) {
 			try {
 				this.logFile.createNewFile();
@@ -41,10 +43,10 @@ public class SignEditLogger {
                 } else if (theType.equals(LogType.SIGNCHANGE)) {
 			theMessage = this.plugin.localization.get("signChange") + " " + thePlayer + theCommand;
 		}
-		if (Config.commandsLogFile()) {
+		if (config.commandsLogFile()) {
 			logFile("[" + this.dateFormat.format(new Date()) + "] "	+ theMessage);
 		}
-		if (Config.commandsLogConsole()) {
+		if (config.commandsLogConsole()) {
 			log(level, theMessage);
                 }
 	}

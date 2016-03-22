@@ -28,7 +28,7 @@ public class SignEditPlayerListener implements Listener {
 		Player player = event.getPlayer();
 		Block block = event.getClickedBlock();
 		SignEditDataPackage dataPack = null;
-		if (!event.getAction().equals(Config.clickAction())) {
+		if (!event.getAction().equals(plugin.config.clickAction())) {
 			return;
 		}
 		if (!this.plugin.playerData.containsKey(player.getUniqueId())) {

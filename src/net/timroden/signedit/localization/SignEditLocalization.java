@@ -22,7 +22,7 @@ public class SignEditLocalization {
 	public final void loadLocales() {
 		strings.clear();
 		
-		FileConfiguration locales = plugin.yml.getYMLConfig(Config.getLocale(), true); 
+		FileConfiguration locales = plugin.yml.getYMLConfig(plugin.config.getLocale(), true); 
 
 		if (locales != null) {
 			String value;

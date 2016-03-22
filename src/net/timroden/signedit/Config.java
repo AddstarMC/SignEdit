@@ -5,19 +5,19 @@ import org.bukkit.event.block.Action;
 
 public class Config {
 	private SignEdit plugin;
-	private static Configuration config;
-	private static boolean ignoreCreative;
-	private static boolean invertMouse;
-	private static boolean notifyOnVersion;
-	private static boolean commandsLogConsole;
-	private static boolean commandsLogFile;
-	private static boolean colorsOnPlace;
-	private static boolean useCOPPerm;
-	private static boolean metrics;
-	private static Action clickAction;
-	private static String logName;
-	private static String locale;
-	private static boolean fireBlockBreakPlace;
+	private Configuration config;
+	private boolean ignoreCreative;
+	private boolean invertMouse;
+	private boolean notifyOnVersion;
+	private boolean commandsLogConsole;
+	private boolean commandsLogFile;
+	private boolean colorsOnPlace;
+	private boolean useCOPPerm;
+	private boolean metrics;
+	private Action clickAction;
+	private String logName;
+	private String locale;
+	private boolean fireBlockBreakPlace;
 
 	public Config(SignEdit plugin) {
 		this.plugin = plugin;
@@ -59,31 +59,31 @@ public class Config {
                 }
 	}
 
-	public static boolean fireBlockBreakPlace() {
+	public boolean fireBlockBreakPlace() {
 		return fireBlockBreakPlace;
 	}
 
-	public static boolean ignoreCreative() {
+	public boolean ignoreCreative() {
 		return ignoreCreative;
 	}
 
-	public static Action clickAction() {
+	public Action clickAction() {
 		return clickAction;
 	}
 
-	public static String logName() {
+	public String logName() {
 		return logName;
 	}
 
-	public static boolean notifyVersionUpdate() {
+	public boolean notifyVersionUpdate() {
 		return notifyOnVersion;
 	}
 
-	public static boolean commandsLogConsole() {
+	public boolean commandsLogConsole() {
 		return commandsLogConsole;
 	}
 
-	public static boolean commandsLogFile() {
+	public boolean commandsLogFile() {
 		return commandsLogFile;
 	}
 
@@ -99,7 +99,7 @@ public class Config {
 		return invertMouse;
 	}
 
-	public static String getLocale() {
+	public String getLocale() {
 		return locale;
 	}
 

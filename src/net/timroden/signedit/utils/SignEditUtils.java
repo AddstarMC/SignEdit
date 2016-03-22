@@ -15,6 +15,7 @@ import org.bukkit.event.block.SignChangeEvent;
 
 public class SignEditUtils {
 	private SignEdit plugin;
+	private Config config;
 
 	public SignEditUtils(SignEdit plugin) {
 		this.plugin = plugin;
@@ -34,7 +35,7 @@ public class SignEditUtils {
 	}
 
 	public boolean throwSignChange(Block theBlock, Player thePlayer, String[] theLines) {
-		if (Config.fireBlockBreakPlace() == true) {
+		if (config.fireBlockBreakPlace() == true) {
 			
 			BlockBreakEvent b = new BlockBreakEvent(theBlock, thePlayer);
 			this.plugin.pluginMan.callEvent(b);
@@ -74,7 +75,7 @@ public class SignEditUtils {
 	}
 
 	public boolean shouldCancel(Player player) {
-		boolean ret = (Config.ignoreCreative()) && (!this.plugin.config.invertMouse()) && (player.getGameMode().equals(GameMode.CREATIVE));
+		boolean ret = (config.ignoreCreative()) && (!this.plugin.config.invertMouse()) && (player.getGameMode().equals(GameMode.CREATIVE));
 		return ret;
 	}
 
