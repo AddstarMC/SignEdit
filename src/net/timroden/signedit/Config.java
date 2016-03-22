@@ -51,10 +51,12 @@ public class Config {
 		metrics = config.getBoolean("signedit.metrics");
 		fireBlockBreakPlace = config.getBoolean("signedit.fireBlockBreakPlace");
 
-		if (invertMouse)
+		if (invertMouse) {
 			clickAction = Action.RIGHT_CLICK_BLOCK;
-		else
+                }
+                else {
 			clickAction = Action.LEFT_CLICK_BLOCK;
+                }
 	}
 
 	public static boolean fireBlockBreakPlace() {
@@ -106,7 +108,6 @@ public class Config {
 	}
 
 	public String clickActionStr() {
-		return invertMouse ? this.plugin.localization.get("clickRight")
-				: this.plugin.localization.get("clickLeft");
+		return invertMouse ? this.plugin.localization.get("clickRight") : this.plugin.localization.get("clickLeft");
 	}
 }

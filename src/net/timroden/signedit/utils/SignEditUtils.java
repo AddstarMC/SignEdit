@@ -90,15 +90,11 @@ public class SignEditUtils {
 	}
 
 	public boolean isSign(Block b) {
-		return (b.getType().equals(Material.SIGN))
-				|| (b.getType().equals(Material.SIGN_POST))
-				|| (b.getType().equals(Material.WALL_SIGN));
+		return (b.getType().equals(Material.SIGN)) || (b.getType().equals(Material.SIGN_POST)) || (b.getType().equals(Material.WALL_SIGN));
 	}
 
 	public boolean shouldCancel(Player player) {
-		boolean ret = (Config.ignoreCreative())
-				&& (!this.plugin.config.invertMouse())
-				&& (player.getGameMode().equals(GameMode.CREATIVE));
+		boolean ret = (Config.ignoreCreative()) && (!this.plugin.config.invertMouse()) && (player.getGameMode().equals(GameMode.CREATIVE));
 		return ret;
 	}
 
