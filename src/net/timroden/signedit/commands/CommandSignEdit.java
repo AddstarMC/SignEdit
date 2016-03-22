@@ -93,8 +93,7 @@ public class CommandSignEdit implements CommandExecutor {
 				}
 				this.plugin.log.logAll(player.getName(), "copy " + args[1], LogType.PLAYERCOMMAND, Level.INFO);
 				if (!this.utils.isInt(args[1])) {
-					SignEditDataPackage tmp = new SignEditDataPackage(player.getName(), SignFunction.COPY, (this.plugin.pasteAmounts.get(player
-						.getName())));
+					SignEditDataPackage tmp = new SignEditDataPackage(player.getName(), SignFunction.COPY, (this.plugin.pasteAmounts.get(player.getUniqueId())));
 					this.plugin.playerData.put(player.getUniqueId(), tmp);
 					player.sendMessage(this.plugin.chatPrefix + this.plugin.localization.get("invalidNumber", new Object[] { args[1] }));
 					player.sendMessage(this.plugin.chatPrefix
