@@ -18,8 +18,8 @@ import org.mcstats.Metrics;
 public class SignEdit extends JavaPlugin {
 	public String chatPrefix = ChatColor.RESET + "[" + ChatColor.AQUA + "SignEdit" + ChatColor.WHITE + "] " + ChatColor.RESET;
 	public PluginManager pluginMan;
-	public Map<UUID, SignEditDataPackage> playerData = new HashMap<UUID, SignEditDataPackage>();
-	public Map<UUID, Integer> pasteAmounts = new HashMap<UUID, Integer>();
+	public Map<UUID, SignEditDataPackage> playerData = new HashMap<>();
+	public Map<UUID, Integer> pasteAmounts = new HashMap<>();
 	private SignEditPlayerListener listener;
 	public SignEditLogger log;
 	public SignEditUtils utils;

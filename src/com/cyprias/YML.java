@@ -17,8 +17,8 @@ import org.bukkit.configuration.file.YamlConfiguration;
 public class YML {
 	private SignEdit plugin;
 	
-	private Map<String, File> Files = new HashMap<String, File>();
-	private Map<String, FileConfiguration> FileConfigs = new HashMap<String, FileConfiguration>();
+	private Map<String, File> Files = new HashMap<>();
+	private Map<String, FileConfiguration> FileConfigs = new HashMap<>();
 	
 	public YML(SignEdit monarchy) {
 		this.plugin = monarchy;
