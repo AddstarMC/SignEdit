@@ -31,14 +31,14 @@ public class SignEditPlayerListener implements Listener {
 		if (!event.getAction().equals(Config.clickAction())) {
 			return;
 		}
-		if (!this.plugin.playerData.containsKey(player.getName())) {
+		if (!this.plugin.playerData.containsKey(player.getUniqueId())) {
 			return;
 		}
 		if ((block == null) || (!this.utils.isSign(block))) {
 			return;
 		}
 		Sign sign = (Sign) block.getState();
-		dataPack = (SignEditDataPackage) this.plugin.playerData.get(player.getName());
+		dataPack = (SignEditDataPackage) this.plugin.playerData.get(player.getUniqueId());
 
 		SignFunction function = dataPack.getFunction();
 
@@ -48,7 +48,7 @@ public class SignEditPlayerListener implements Listener {
 				sign.update();
 			}
 			SignEditDataPackage tmp = new SignEditDataPackage(player.getName(), sign.getLines(), dataPack.getAmount(), SignFunction.PASTE);
-			this.plugin.playerData.put(player.getName(), tmp);
+			this.plugin.playerData.put(player.getUniqueId(), tmp);
 			player.sendMessage(this.plugin.chatPrefix + this.plugin.localization.get("copySignAdded", new Object[] { this.plugin.config.clickActionStr() }));
 		} else if (function.equals(SignFunction.COPYPERSIST)) {
 			if (this.utils.shouldCancel(player)) {
@@ -56,7 +56,7 @@ public class SignEditPlayerListener implements Listener {
 				sign.update();
 			}
 			SignEditDataPackage tmp = new SignEditDataPackage(player.getName(), SignFunction.PASTEPERSIST, sign.getLines());
-			this.plugin.playerData.put(player.getName(), tmp);
+			this.plugin.playerData.put(player.getUniqueId(), tmp);
 			player.sendMessage(this.plugin.chatPrefix + this.plugin.localization.get("copySignAdded", new Object[] { this.plugin.config.clickActionStr() }));
 		} else if (function.equals(SignFunction.PASTE)) {
 			if (this.utils.shouldCancel(player)) {
@@ -66,7 +66,7 @@ public class SignEditPlayerListener implements Listener {
 
 			if (this.utils.throwSignChange(block, player, sign.getLines())) {
 				player.sendMessage(this.plugin.chatPrefix + this.plugin.localization.get("pasteError"));
-				this.plugin.playerData.remove(player.getName());
+				this.plugin.playerData.remove(player.getUniqueId());
 				return;
 			}
 
@@ -81,11 +81,11 @@ public class SignEditPlayerListener implements Listener {
 			if (amount == 0) {
 				this.utils.throwSignChange(block, player, sign.getLines());
 				player.sendMessage(this.plugin.chatPrefix + this.plugin.localization.get("pasted") + " " + this.plugin.localization.get("pasteEmpty"));
-				this.plugin.playerData.remove(player.getName());
+				this.plugin.playerData.remove(player.getUniqueId());
 				return;
 			}
 			SignEditDataPackage tmp = new SignEditDataPackage(player.getName(), lines, amount, SignFunction.PASTE);
-			this.plugin.playerData.put(player.getName(), tmp);
+			this.plugin.playerData.put(player.getUniqueId(), tmp);
 			player.sendMessage(this.plugin.chatPrefix
 				+ this.plugin.localization.get("pasted")
 				+ " "
@@ -101,7 +101,7 @@ public class SignEditPlayerListener implements Listener {
 
 			if (this.utils.throwSignChange(block, player, sign.getLines())) {
 				player.sendMessage(this.plugin.chatPrefix + this.plugin.localization.get("pasteError"));
-				this.plugin.playerData.remove(player.getName());
+				this.plugin.playerData.remove(player.getUniqueId());
 				return;
 			}
 
@@ -123,7 +123,7 @@ public class SignEditPlayerListener implements Listener {
 
 			if (this.utils.throwSignChange(block, player, existingLines)) {
 				player.sendMessage(this.plugin.chatPrefix + this.plugin.localization.get("editError"));
-				this.plugin.playerData.remove(player.getName());
+				this.plugin.playerData.remove(player.getUniqueId());
 				return;
 			}
 
@@ -135,7 +135,7 @@ public class SignEditPlayerListener implements Listener {
 				LogType.SIGNCHANGE, Level.INFO);
 			sign.update();
 			player.sendMessage(this.plugin.chatPrefix + this.plugin.localization.get("editChanged"));
-			this.plugin.playerData.remove(player.getName());
+			this.plugin.playerData.remove(player.getUniqueId());
 		}
 	}
 

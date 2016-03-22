@@ -4,6 +4,7 @@ import com.cyprias.YML;
 import java.io.IOException;
 import java.util.HashMap;
 import java.util.Map;
+import java.util.UUID;
 import net.timroden.signedit.commands.CommandSignEdit;
 import net.timroden.signedit.data.SignEditDataPackage;
 import net.timroden.signedit.localization.SignEditLocalization;
@@ -17,8 +18,8 @@ import org.mcstats.Metrics;
 public class SignEdit extends JavaPlugin {
 	public String chatPrefix = ChatColor.RESET + "[" + ChatColor.AQUA + "SignEdit" + ChatColor.WHITE + "] " + ChatColor.RESET;
 	public PluginManager pluginMan;
-	public Map<String, SignEditDataPackage> playerData = new HashMap<String, SignEditDataPackage>();
-	public Map<String, Integer> pasteAmounts = new HashMap<String, Integer>();
+	public Map<UUID, SignEditDataPackage> playerData = new HashMap<UUID, SignEditDataPackage>();
+	public Map<UUID, Integer> pasteAmounts = new HashMap<UUID, Integer>();
 	private SignEditPlayerListener listener;
 	public SignEditLogger log;
 	public SignEditUtils utils;
