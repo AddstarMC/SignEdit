@@ -2,7 +2,7 @@
   <modelVersion>4.0.0</modelVersion>
   <groupId>net.timroden.signedit</groupId>
   <artifactId>SignEdit</artifactId>
-  <version>3.3.7-SNAPSHOT</version>
+  <version>3.3.11-SNAPSHOT</version>
   <name>SignEdit</name>
   <description>Edit signs in Minecraft.</description>
     <properties>
