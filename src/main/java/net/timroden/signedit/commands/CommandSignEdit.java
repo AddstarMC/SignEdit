@@ -13,8 +13,8 @@ import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
 
 public class CommandSignEdit implements CommandExecutor {
-	private SignEdit plugin;
-	private SignEditUtils utils;
+	private final SignEdit plugin;
+	private final SignEditUtils utils;
 
 	public CommandSignEdit(SignEdit plugin) {
 		this.plugin = plugin;
@@ -164,7 +164,7 @@ public class CommandSignEdit implements CommandExecutor {
 		return true;
 	}
 
-	public void help(CommandSender sender) {
+	private void help(CommandSender sender) {
 		sender.sendMessage(this.plugin.chatPrefix + this.plugin.localization.get("commandsAvailable"));
 		if ((sender instanceof Player)) {
 			sender.sendMessage(this.plugin.chatPrefix + this.plugin.localization.get("commandsHeader", this.plugin.config.clickActionStr() ));

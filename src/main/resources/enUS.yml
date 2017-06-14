@@ -1,6 +1,5 @@
 #enUS (English, US) Locale file for SignEdit
 #Compiled by Timr
-metricsError: "&cError enabling Metrics"
 copySignAdded: "&7Sign added to clip board, %s a sign to paste"
 pasteError: "&cCould not paste sign"
 pasted: "&7Sign pasted."

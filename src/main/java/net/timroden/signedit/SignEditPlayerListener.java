@@ -14,9 +14,9 @@ import org.bukkit.event.Listener;
 import org.bukkit.event.block.SignChangeEvent;
 import org.bukkit.event.player.PlayerInteractEvent;
 
-public class SignEditPlayerListener implements Listener {
-	private SignEdit plugin;
-	private SignEditUtils utils;
+class SignEditPlayerListener implements Listener {
+	private final SignEdit plugin;
+	private final SignEditUtils utils;
 
 	public SignEditPlayerListener(SignEdit plugin) {
 		this.plugin = plugin;
@@ -24,6 +24,7 @@ public class SignEditPlayerListener implements Listener {
 	}
 
 	@EventHandler
+	@SuppressWarnings("unused")
 	public void onPlayerInteract(PlayerInteractEvent event) {
 		Player player = event.getPlayer();
 		Block block = event.getClickedBlock();
@@ -38,7 +39,7 @@ public class SignEditPlayerListener implements Listener {
 			return;
 		}
 		Sign sign = (Sign) block.getState();
-		dataPack = (SignEditDataPackage) this.plugin.playerData.get(player.getUniqueId());
+		dataPack = this.plugin.playerData.get(player.getUniqueId());
 
 		SignFunction function = dataPack.getFunction();
 
@@ -140,6 +141,7 @@ public class SignEditPlayerListener implements Listener {
 	}
 
 	@EventHandler
+	@SuppressWarnings("unused")
 	public void onSignChange(SignChangeEvent e) {
 		if (this.plugin.config.colorsOnPlace()) {
 			if ((this.plugin.config.useCOPPermission()) && (!e.getPlayer().hasPermission("signedit.colorsonplace"))) {

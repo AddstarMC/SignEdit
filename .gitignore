@@ -5,3 +5,6 @@
 
 #Nobody wants the .class files, anyway
 /bin
+nb-configuration.xml
+
+/.idea
